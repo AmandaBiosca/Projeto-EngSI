@@ -1,0 +1,18 @@
+<a  mat-list-item
+    (click)="onItemSelected(item)"
+    [ngClass]="{'active': item.route ? router.isActive(item.route, true): false, 'expanded': expanded}"
+    class="align-items-center"
+    id="{{itemId}}"
+    *ngIf="item.displayNavItem">
+  <div class="flex-grow-1">
+    <mat-icon class="routeIcon">{{item.icon}}</mat-icon>
+    <span class="icon-text">{{item.label}}</span>
+  </div>
+  <span *ngIf="item.children && item.children.length" class="">
+    <mat-icon aria-label="item.label">expand_more</mat-icon>
+  </span>
+</a>
+<div *ngIf="expanded && item.displayNavItem">
+  <bv-sidenav-item *ngFor="let child of item.children" [item]="child" [depth]="depth+1">
+  </bv-sidenav-item>
+</div>

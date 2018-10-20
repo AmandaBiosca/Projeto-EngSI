@@ -1,0 +1,18 @@
+@import './../styles/themes/corporativo/fonts';
+@import './../styles/themes/corporativo/theme';
+
+.mat-list-item {
+    color: mat-color($bv-accent, A400);
+}
+
+.icon-text {
+    margin: 0 10px 0 10px;
+    vertical-align: super;
+}
+
+// Cor de fundo do submenu
+bv-sidenav-item {
+    a {
+        background: mat-color($bv-accent, 800);
+    }
+}

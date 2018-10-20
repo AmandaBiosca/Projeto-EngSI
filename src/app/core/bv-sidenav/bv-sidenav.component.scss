@@ -1,0 +1,53 @@
+@import './../styles/themes/corporativo/fonts';
+@import './../styles/themes/corporativo/theme';
+
+button {
+  border: none;
+  outline: none;
+  margin: 0 2rem 0 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 210px;
+}
+
+.mat-toolbar.mat-primary {
+  top: 0;
+}
+
+.mat-drawer-container {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  display: block;
+  overflow: hidden;
+}
+
+.mat-drawer {
+  position: relative;
+  z-index: 4;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  outline: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transform: translate3d(-100%,0,0);
+  background: mat-color($bv-accent, 900);
+}
