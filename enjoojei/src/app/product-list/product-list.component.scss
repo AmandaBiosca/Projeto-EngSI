@@ -1,0 +1,47 @@
+$primary-light: #AA076B;
+
+.list-title {
+    padding: 0 5%;
+    margin: 50px 0;
+    font-size: 24px;
+    color: $primary-light;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 5%;
+
+    .product-container {
+        width: 23.5%;
+        margin-left: 2%;
+        margin-bottom: 50px;
+        cursor: pointer;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        .product-picture {
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .product-info {
+            font-size: 18px;
+            margin-top: 10px;
+            text-align: center;
+
+            .product-name {
+                margin-bottom: 5px;
+            }
+
+            .product-price {
+                color: $primary-light;
+            }
+        }
+    }
+}

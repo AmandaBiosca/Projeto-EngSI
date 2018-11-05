@@ -1,3 +1,12 @@
-<p>
-  product-list works!
-</p>
+<h2 class="list-title">Populares</h2>
+<div class="product-list">
+  <div *ngFor="let product of productList" class="product-container">
+    <div class="product-picture">
+      <img [src]="product.cover">
+    </div>
+    <div class="product-info">
+      <h3 class="product-name">{{product.name}}</h3>
+      <strong class="product-price">R$: {{product.price}}</strong>
+    </div>
+  </div>
+</div>
