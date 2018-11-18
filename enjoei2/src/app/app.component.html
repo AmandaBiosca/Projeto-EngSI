@@ -1,0 +1,5 @@
+<div class="content">
+  <app-header (openLogin)="openLogin()"></app-header>
+  <app-product-list></app-product-list>
+</div>
+<app-login *ngIf="showLogin" (closeLogin)="closeLogin()"></app-login>
