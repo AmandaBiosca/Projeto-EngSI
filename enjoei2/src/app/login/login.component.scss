@@ -20,6 +20,12 @@
         background: $white;
         border-radius: 5px;
         z-index: 3;
+        transition: all ease-in .2s;
+
+        &.register {
+            width: 100%;
+            border-radius: 0;
+        }
         .login-form {
             display: flex;
             flex-direction: column;
@@ -69,6 +75,12 @@
                     font-size: 20px;
                     color: $primary-light;
                     box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $primary-light;
+
+                    &.register {
+                        color: $gray;
+                        box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $light-gray;
+                        margin-right: 30px;
+                    }
                 }
             }
         }

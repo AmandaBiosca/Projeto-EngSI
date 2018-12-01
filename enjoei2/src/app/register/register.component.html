@@ -1,0 +1,67 @@
+<form class="register">
+  <h2 class="title">Precisamos de algumas informações para criar seu usuário</h2>
+  <fieldset>
+    <div class=form-content>
+      <div class="input-field">
+        <mat-form-field>
+          <input matInput placeholder="Primeiro nome" id="firstName" [(ngModel)]="form.firstName" name="firstName">
+        </mat-form-field>
+      </div>
+      <div class="input-field">
+        <mat-form-field>
+          <input matInput placeholder="Último nome" id="lastName" [(ngModel)]="form.lastName" name="lastName">
+        </mat-form-field>
+      </div>
+      <div class="input-field">
+        <mat-form-field>
+          <mat-select placeholder="Sexo" id="sex" [(ngModel)]="form.sex" name="sex">
+            <mat-option value="MALE">Masculino</mat-option>
+            <mat-option value="FEMALE">Feminino</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="input-field">
+        <mat-form-field>
+          <input matInput placeholder="DDD" id="ddd" [(ngModel)]="form.ddd" name="ddd">
+        </mat-form-field>
+      </div>
+      <div class="input-field">
+        <mat-form-field>
+          <input matInput placeholder="Telefone" id="phone" [(ngModel)]="form.phone" name="phone">
+        </mat-form-field>
+      </div>
+      <div class="input-field">
+        <mat-form-field>
+          <input matInput [matDatepicker]="dp1" placeholder="Data de nascimento" disabled id="birth" [(ngModel)]="form.birthDate"
+            name="birth">
+          <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+          <mat-datepicker #dp1 disabled="false"></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="input-field">
+        <mat-form-field>
+          <input matInput placeholder="CPF" id="cpf" [(ngModel)]="form.cpf" name="cpf">
+        </mat-form-field>
+      </div>
+      <div class="input-field">
+        <mat-form-field>
+          <input matInput placeholder="E-mail" id="email" [(ngModel)]="form.email" name="email">
+        </mat-form-field>
+      </div>
+      <div class="input-field">
+        <mat-form-field>
+          <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'" id="pwd" [(ngModel)]="form.password"
+            name="password">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+  </fieldset>
+  <div *ngIf="!loading" class="btn-holder">
+    <button type="button" class="cancel" (click)="closeRegisterHandler()">Cancelar</button>
+    <button type="button" (click)="registerHandler()">Registrar</button>
+  </div>
+  <div *ngIf="loading" class="btn-holder center">
+    <button type="button" class="sending" disabled>Enviando, por favor aguarde</button>
+  </div>
+</form>
