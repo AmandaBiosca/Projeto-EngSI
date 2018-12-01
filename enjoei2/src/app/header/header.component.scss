@@ -1,6 +1,6 @@
 .header {
     // variaveis
-    
+
     $primary-light: #AA076B;
     $primary-dark: #61045F;
     $white: white;
@@ -14,10 +14,41 @@
     background: $primary-light;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, $primary-dark, $primary-light);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, $primary-dark, $primary-light); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+
     .title {
         color: $white;
         font-size: 24px;
         align-self: center;
     }
+}
+
+.busca{
+  color: #AA076B;
+  width: 500px;
+  // background-color: white;
+}
+
+
+#barra-busca {
+  .mat-form-field-appearance-outline {
+    background-color: white;
+  }
+  .mat-form-field-outline {
+    background-color: white;
+  }
+  .mat-form-field-outline-thick {
+    color: #AA076B;
+  }
+}
+
+  /deep/ .mat-form-field-outline {
+  background-color: white;
+}
+
+  /deep/ .mat-form-field-outline-thick {
+    color: #AA076B;
+  }
+
+.outline{
+  color: #AA076B;
 }

@@ -21,13 +21,13 @@ export class LoginComponent implements OnInit {
   }
 
   closeLoginHandler(e) {
-    if (e.srcElement == document.getElementsByClassName('login-overlay')[0]) {
+    if (e.srcElement === document.getElementsByClassName('login-overlay')[0]) {
       this.closeLogin.emit('closeLogin');
     }
   }
 
   loginHandler() {
-    if(this.email !== "" && this.password !== "") {
+    if (this.email !== '' && this.password !== '') {
       this.submit();
     } else {
       alert('Preencha todos os campos para prosseguir');

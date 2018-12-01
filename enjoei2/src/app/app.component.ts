@@ -10,7 +10,7 @@ export class AppComponent {
   showLogin: boolean;
 
   ngOnInit() {
-    this.showLogin = false;  
+    this.showLogin = false;
   }
 
   openLogin() { this.showLogin = true; }

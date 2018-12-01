@@ -1,10 +1,11 @@
-export class Product {
-  id: number;
+export interface Produto {
+
+  id: string;
   name: string;
-  cover: string;
-  price: number;
+  preco: string;
   tamanho: string;
   marca: string;
   condicao: string;
   descricao: string;
+  imagePath: string;
 }
