@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { PublicUser } from '../objects/publicUser';
 
 @Component({
   selector: 'app-header-nav',
@@ -8,8 +9,9 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class HeaderNavComponent implements OnInit {
 
   @Output() loginAction = new EventEmitter<string>();
-  @Output() logoutAction = new EventEmitter<string>();
-  @Input() id: Number;
+  @Output() menuAction = new EventEmitter<string>();
+  @Input() id: number;
+  @Input() user: PublicUser;
 
   isLogged: boolean = false;
 
@@ -35,7 +37,7 @@ export class HeaderNavComponent implements OnInit {
     this.loginAction.emit('loginAction');
   }
 
-  logoutClick() {
-    this.logoutAction.emit('logoutAction');
+  menuClick() {
+    this.menuAction.emit('menuAction');
   }
 }

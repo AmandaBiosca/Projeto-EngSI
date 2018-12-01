@@ -9,7 +9,7 @@
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
   </div>
-  <app-header-nav (loginAction)="openLoginHandler()" (logoutAction)="logoutHandler()" [id]="id"></app-header-nav>
-
+  <app-header-nav *ngIf="!showMenu" (loginAction)="openLoginHandler()" (menuAction)="menuHandler()" [id]="id" [user]="user"></app-header-nav>
 </header>
+<app-user-menu *ngIf="showMenu" (closeMenu)="closeMenu()" (logoutAction)="logoutHandler()" [user]="user"></app-user-menu>
 

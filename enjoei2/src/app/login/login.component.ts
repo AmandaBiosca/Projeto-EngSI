@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   showLoginForm: boolean = true;
   loginClass: string = '';
   showRegisterForm: boolean = false;
+  loading: boolean = false;
 
   constructor(private loginService: LoginService, private toastr: ToastrService) { }
 
@@ -62,6 +63,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
+    this.loading = true;
     const loginData: Login = {
       email: this.email,
       password: this.password
@@ -73,6 +75,7 @@ export class LoginComponent implements OnInit {
           this.toastr.success('Login efetuado com sucesso!', 'Sucesso');
           const id = data.message;
           this.doLoginHandler(id);
+          this.loading = false;
         },
         error => {
           error = error.error || {};
@@ -80,6 +83,7 @@ export class LoginComponent implements OnInit {
             (error.errors[0] || {}).message || 'Problema não esperado, desculpe pelo inconveniente',
             'Algo deu errado'
           );
+          this.loading = false;
         });
   }
 
