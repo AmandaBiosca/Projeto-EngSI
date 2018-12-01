@@ -9,7 +9,7 @@
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
   </div>
-  <app-header-nav (loginAction)="openLoginHandler()"></app-header-nav>
+  <app-header-nav (loginAction)="openLoginHandler()" (logoutAction)="logoutHandler()" [id]="id"></app-header-nav>
 
 </header>
 

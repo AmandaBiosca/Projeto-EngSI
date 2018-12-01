@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Login } from '../objects/login';
 import { LoginService } from '../login.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +11,44 @@ import { LoginService } from '../login.service';
 export class LoginComponent implements OnInit {
 
   @Output() closeLogin = new EventEmitter<String>();
+  @Output() doLogin = new EventEmitter<String>();
 
   email: string = '';
   password: string = '';
-  hide = true;
+  hide: boolean = true;
+  showLoginForm: boolean = true;
+  loginClass: string = '';
+  showRegisterForm: boolean = false;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
 
+  doLoginHandler(id) {
+    this.doLogin.emit(id);
+  }
+
+  openRegister() {
+    this.loginClass = 'register';
+    this.showLoginForm = false;
+    setTimeout( () => {
+      this.showRegisterForm = true;
+
+    }, 300);
+  }
+
+  closeRegisterAction() {
+    this.loginClass = '';
+    this.showRegisterForm = false;
+    setTimeout( () => {
+      this.showLoginForm = true;
+
+    }, 300);
+  }
+
   closeLoginHandler(e) {
-    if (e.srcElement === document.getElementsByClassName('login-overlay')[0]) {
+    if (e.srcElement === document.getElementsByClassName('login-overlay')[0] && this.showLoginForm) {
       this.closeLogin.emit('closeLogin');
     }
   }
@@ -30,7 +57,7 @@ export class LoginComponent implements OnInit {
     if (this.email !== '' && this.password !== '') {
       this.submit();
     } else {
-      alert('Preencha todos os campos para prosseguir');
+      this.toastr.error('Preencha todos os campos para prosseguir', 'Algo deu errado!');
     }
   }
 
@@ -41,7 +68,19 @@ export class LoginComponent implements OnInit {
     };
 
     this.loginService.doLogin(loginData)
-      .subscribe(data => console.log(data));
+      .subscribe(
+        data => {
+          this.toastr.success('Login efetuado com sucesso!', 'Sucesso');
+          const id = data.message;
+          this.doLoginHandler(id);
+        },
+        error => {
+          error = error.error || {};
+          this.toastr.error(
+            (error.errors[0] || {}).message || 'Problema não esperado, desculpe pelo inconveniente',
+            'Algo deu errado'
+          );
+        });
   }
 
 }

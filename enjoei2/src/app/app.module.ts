@@ -11,15 +11,16 @@ import { FormsModule } from '@angular/forms';
 import { ProductListComponent } from './product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HomeComponent } from './Home/home.component';
 import { PagamentoComponent } from './pagamento/pagamento.component';
 import { LogadoComponent } from './logado/logado.component';
-import {MatTooltipModule} from '@angular/material/tooltip';
-
-
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ToastrModule } from 'ngx-toastr';
+import { RegisterComponent } from './register/register.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     ProductDetailsComponent,
     HomeComponent,
     PagamentoComponent,
-    LogadoComponent
+    LogadoComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatFormFieldModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ToastrModule.forRoot(),
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

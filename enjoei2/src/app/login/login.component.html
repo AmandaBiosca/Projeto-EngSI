@@ -1,6 +1,6 @@
 <div class="login-overlay" (click)="closeLoginHandler($event)">
-  <div class="login-holder">
-    <form class="login-form">
+  <div class="login-holder {{loginClass}}">
+    <form *ngIf="showLoginForm" class="login-form">
       <h2 class="title">Login</h2>
       <fieldset>
         <div class="input-field">
@@ -16,8 +16,11 @@
         </div>
       </fieldset>
       <div class="btn-holder">
+        <button type="button" class="login-btn register" (click)="openRegister()">Criar conta</button>
         <button type="button" class="login-btn" (click)="loginHandler()">Entrar</button>
       </div>
     </form>
+
+    <app-register *ngIf="showRegisterForm" (closeRegister)="closeRegisterAction()"></app-register>
   </div>
 </div>

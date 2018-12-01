@@ -1,5 +1,8 @@
 <ul class="nav">
-  <li class="nav-item login" (click)="loginClick()">
+  <li *ngIf="!isLogged" class="nav-item login" (click)="loginClick()">
     Entrar
+  </li>
+  <li *ngIf="isLogged" class="nav-item" (click)="logoutClick()">
+    Sair
   </li>
 </ul>
