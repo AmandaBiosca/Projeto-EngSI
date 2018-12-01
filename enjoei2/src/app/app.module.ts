@@ -21,6 +21,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { RegisterComponent } from './register/register.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
+import { UserMenuComponent } from './user-menu/user-menu.component';
+import { SafeUrlPipe } from './safe-url.pipe';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { MatNativeDateModule } from '@angular/material';
     HomeComponent,
     PagamentoComponent,
     LogadoComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserMenuComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,

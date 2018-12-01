@@ -1,0 +1,17 @@
+<div class="menu-overlay" (click)="closeMenuHandler($event)">
+  <div *ngIf="user" class="menu-holder">
+    <img [src]="user.profileImage | safeUrl" class="profile-picture">
+    <h2 class="name">{{user.firstName}} {{user.lastName}}</h2>
+    <ul class="nav">
+      <li class="nav-item" (click)="goToConfiguration()">
+        Configurações
+      </li>
+      <li class="nav-item" (click)="logoutHandler()">
+        Sair
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!user" class="menu-holder">
+    <span class="center">Carregando usuário</span>
+  </div>
+</div>

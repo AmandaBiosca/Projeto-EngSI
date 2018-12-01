@@ -71,6 +71,10 @@
                 display: flex;
                 justify-content: flex-end;
 
+                &.center {
+                    justify-content: center;
+                }
+                
                 .login-btn {
                     font-size: 20px;
                     color: $primary-light;
@@ -80,6 +84,11 @@
                         color: $gray;
                         box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $light-gray;
                         margin-right: 30px;
+                    }
+
+                    &.sending {
+                        color: $gray;
+                        box-shadow: none;
                     }
                 }
             }

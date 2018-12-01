@@ -2,7 +2,8 @@
   <li *ngIf="!isLogged" class="nav-item login" (click)="loginClick()">
     Entrar
   </li>
-  <li *ngIf="isLogged" class="nav-item" (click)="logoutClick()">
-    Sair
+  <li *ngIf="isLogged" class="nav-item" (click)="menuClick()">
+    Minha conta
   </li>
 </ul>
+<img *ngIf="isLogged && user" [src]="user.profileImage | safeUrl" class="profile-picture">
