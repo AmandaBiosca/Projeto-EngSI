@@ -23,7 +23,6 @@ export class ProductListService {
   constructor(private http: HttpClient) { }
 
   getPopularProducts(): Observable<any> {
-    debugger
     return this.http.get(this.popularURL, this.httpOptions);
   }
 

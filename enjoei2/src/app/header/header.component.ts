@@ -5,6 +5,7 @@ import { PublicUser } from '../objects/publicUser';
 import { UserService } from '../user.service';
 import { ToastrService } from 'ngx-toastr';
 import { defaultImg } from '../mock-data/image';
+import { CommunicationService } from '../communication.service';
 
 @Component({
   selector: 'app-header',
@@ -25,11 +26,15 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router,
     private formBuilder: FormBuilder, private el: ElementRef,
-    private userService: UserService, private toastr: ToastrService) { }
+    private userService: UserService, private toastr: ToastrService,
+    private communication: CommunicationService) { }
 
   ngOnInit() {
     this.inicializeFormBusca();
     this.checkUser();
+    this.communication.triggerLogin.subscribe( action => {
+      this.checkUser();
+    });
   }
 
   checkUser() {

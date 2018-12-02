@@ -5,6 +5,7 @@ import { UserService } from '../user.service';
 import { defaultImg } from '../mock-data/image';
 import { LoginService } from '../login.service';
 import { Login } from '../objects/login';
+import { CommunicationService } from '../communication.service';
 
 @Component({
   selector: 'app-profile',
@@ -28,7 +29,8 @@ export class ProfileComponent implements OnInit {
   sendingPassword: boolean = false;
 
   constructor(private toastr: ToastrService,
-    private userService: UserService, private loginService: LoginService) { }
+    private userService: UserService, private loginService: LoginService,
+    private communication: CommunicationService) { }
 
   showPasswordFields() {
     this.showPassword = true;
@@ -63,17 +65,18 @@ export class ProfileComponent implements OnInit {
       data => {
 
         const saveData = {
-          id: this.user.clientId,
           client: {
+            clientId: this.user.clientId,
             password: this.password
           }
         }
 
-        this.userService.savePrivateUser(saveData).subscribe(
+        this.userService.savePrivateUser(saveData.client).subscribe(
           data => {
             this.toastr.success('Senha alterada com sucesso', 'Sucesso');
             this.hidePasswordFields();
             this.fetchUser()
+            this.communication.trigger();
             this.sendingPassword = false;
           },
           error => {
@@ -148,16 +151,12 @@ export class ProfileComponent implements OnInit {
   saveAction() {
     this.sending = true;
 
-    const data = {
-      id: this.user.clientId,
-      client: { ...this.user }
-    };
-
-    this.userService.savePrivateUser(data)
+    this.userService.savePrivateUser(this.user)
       .subscribe(
         data => {
           this.toastr.success('Usuário atualizado com sucesso', 'Sucesso');
-          this.fetchUser()
+          this.fetchUser();
+          this.communication.trigger();
         },
         error => {
           this.toastr.error('Não foi possível atualizar o usuario. (DEVs) Abrir o console para mais informações','Algo deu errado!')

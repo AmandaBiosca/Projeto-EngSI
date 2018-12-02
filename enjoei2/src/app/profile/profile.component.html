@@ -166,8 +166,11 @@
             </mat-form-field>
           </div>
         </div>
-        <div class="save-holder">
+        <div *ngIf="!sending" class="save-holder">
           <button type="button" class="save" (click)="saveHandler()">Salvar</button>
+        </div>
+        <div *ngIf="sending" class="save-holder center">
+          <button type="button" class="sending" disabled>Enviando, por favor aguarde</button>
         </div>
       </div>
     </fieldset>

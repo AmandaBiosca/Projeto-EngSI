@@ -23,6 +23,11 @@
         color: $white;
         cursor: pointer;
 
+        &.login {
+            justify-content: center;
+            flex-direction: column;
+            width: 120px;
+        }
         span {
             display: flex;
             justify-content: center;

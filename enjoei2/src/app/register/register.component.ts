@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
     sex: ''
   };
 
+  hide: boolean = true;
   loading: boolean = false;
 
   constructor(private registerService: RegisterService, private toastr: ToastrService) { }

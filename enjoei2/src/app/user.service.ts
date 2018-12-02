@@ -29,6 +29,6 @@ export class UserService {
   }
 
   savePrivateUser(data: any) {
-    return this.http.put(this.publicURL + data.id, data, this.httpOptions);
+    return this.http.put(this.publicURL + data.clientId, data, this.httpOptions);
   }
 }
