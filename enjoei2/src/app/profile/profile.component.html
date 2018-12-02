@@ -1,0 +1,132 @@
+<section class="content">
+  <nav>
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li>
+        <div class="arrow"></div>
+      </li>
+      <li><a routerLink="/perfil" routerLinkActive="active">Configurações</a></li>
+    </ul>
+  </nav>
+  <form>
+    <fieldset>
+      <div class="form-holder">
+        <img class="profile-picture" src="" />
+        <h2>Identificação</h2>
+        <div class="name-fields fields">
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Primeiro nome" id="firstName" name="firstName">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Último nome" id="lastName" name="lastName">
+            </mat-form-field>
+          </div>
+          <div class="input-field"></div>
+        </div>
+        <div class="auth-fields fields">
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="E-mail" id="email" name="email">
+            </mat-form-field>
+          </div>
+          <div class="btn-holder">
+            <button type="button" class="change">mudar senha</button>
+          </div>
+          <div class="input-field"></div>
+        </div>
+        <h2>Informações pessoais</h2>
+        <div class="information-fields fields">
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="CPF" id="cpf">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput [matDatepicker]="dp1" placeholder="Data de nascimento" disabled id="birthDate" name="birthDate">
+              <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+              <mat-datepicker #dp1 disabled="false"></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <mat-select placeholder="Sexo" id="sex" name="sex">
+                <mat-option value="MALE">Masculino</mat-option>
+                <mat-option value="FEMALE">Feminino</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="DDD" id="ddd" name="ddd">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Telefone" id="phone" name="phone">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <mat-select placeholder="Tamanho" id="size" name="size">
+                <mat-option value="PP">PP</mat-option>
+                <mat-option value="P">P</mat-option>
+                <mat-option value="M">M</mat-option>
+                <mat-option value="G">G</mat-option>
+                <mat-option value="GG">GG</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput type="number" placeholder="Tamanho de sapato" min="0" id="shoeSize" name="shoeSize">
+            </mat-form-field>
+          </div>
+          <div class="input-field"></div>
+          <div class="input-field"></div>
+        </div>
+        <h2>Endereço</h2>
+        <div class="address-fields fields">
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="CEP" id="cep" name="cep">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Estado" id="state" name="state">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Cidade" id="city" name="city">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Bairro" id="neighborhood" name="neighborhood">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Logradouro" id="streetName" name="streetName">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Número" id="addressNumber" name="addressNumber">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Complemento" id="complement" name="complement">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</section>
