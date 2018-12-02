@@ -1,5 +1,7 @@
 <header class="header">
-  <h1 class="title">Enjoojei</h1>
+  <h1 class="title">
+    <a routerLink="/home" routerLinkActive="active">Enjoojei</a>
+  </h1>
 
   <!-- Barra De Busca -->
   <div class="row">
@@ -12,4 +14,3 @@
   <app-header-nav *ngIf="!showMenu" (loginAction)="openLoginHandler()" (menuAction)="menuHandler()" [id]="id" [user]="user"></app-header-nav>
 </header>
 <app-user-menu *ngIf="showMenu" (closeMenu)="closeMenu()" (logoutAction)="logoutHandler()" [user]="user"></app-user-menu>
-
