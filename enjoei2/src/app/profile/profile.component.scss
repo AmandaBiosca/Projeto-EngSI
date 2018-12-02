@@ -4,6 +4,13 @@
     $gray: #747474;
     $light-gray: #c3c3c3;
 
+    padding-top: 80px;
+    
+    .message {
+        padding-top: 100px;
+        font-size: 24px;
+        text-align: center;
+    }
     nav {
         padding: 30px 100px;
         
@@ -33,6 +40,49 @@
         }
     }
 
+    .btn-pwd-holder {
+        display: flex;
+        justify-content: flex-end;
+        align-self: flex-end;
+
+        button {
+            align-self: flex-end;
+            font-size: 16px;
+            color: $primary-light;
+            box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $primary-light;
+
+            &.cancel {
+                margin-right: 20px;
+                color: $gray;
+                box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $light-gray;
+            }
+
+            &.sending {
+                color: $gray;
+                box-shadow: none;
+                cursor: default;
+            }
+        }
+    }
+    
+    .save-holder {
+        display: flex;
+        justify-content: center;
+        align-self: flex-end;
+
+        button {
+            font-size: 20px;
+            color: $primary-light;
+            box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $primary-light;
+
+            &.sending {
+                color: $gray;
+                box-shadow: none;
+                cursor: default;
+            }
+        }
+    }
+
     .form-holder {
         display: flex;
         flex-direction: column;
@@ -40,23 +90,24 @@
 
         h2 {
             font-size: 24px;
-            margin: 20px 0;
+            margin: 80px 0 20px 0;
             color: $primary-light;
         }
 
         .profile-picture {
             width: 200px;
             height: 200px;
-            background: #AA076B;
             border-radius: 200px;
             align-self: center;
-            margin-bottom: 20px;
+            object-fit: cover;
+            cursor: pointer;
         }
 
         .fields {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            width: 100%;
 
             &.auth-fields {
                 .btn-holder {
