@@ -5,11 +5,10 @@
 
   <!-- Barra De Busca -->
   <div class="row">
-    <mat-form-field id="barra-busca" appearance="outline" class="busca" [floatLabel]="never">
-      <!-- <mat-label class="">Precisa encontrar alguma coisa?</mat-label> -->
-      <input matInput placeholder="Precisa encontrar alguma coisa?" class="">
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
+    <form class="search">
+      <input [(ngModel)]="search" name="search" placeholder="Precisa encontrar alguma coisa?" class="">
+      <button type="button" (click)="searchAction()"><mat-icon matSuffix>search</mat-icon></button>
+    </form>
   </div>
   <app-header-nav *ngIf="!showMenu" (loginAction)="openLoginHandler()" (menuAction)="menuHandler()" [id]="id" [user]="user"></app-header-nav>
 </header>
