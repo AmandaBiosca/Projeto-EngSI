@@ -23,6 +23,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import { UserMenuComponent } from './user-menu/user-menu.component';
 import { SafeUrlPipe } from './safe-url.pipe';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { SafeUrlPipe } from './safe-url.pipe';
     LogadoComponent,
     RegisterComponent,
     UserMenuComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

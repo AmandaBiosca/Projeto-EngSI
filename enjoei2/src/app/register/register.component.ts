@@ -38,12 +38,12 @@ export class RegisterComponent implements OnInit {
   registerHandler() {
     let valid = true;
     
-    // for(let key in this.form) {
-    //   if(this.form[key] === null || this.form[key] === '' ) {
-    //     valid = false;
-    //     break;
-    //   }
-    // }
+    for(let key in this.form) {
+      if(this.form[key] === null || this.form[key] === '' ) {
+        valid = false;
+        break;
+      }
+    }
 
     if(valid) {
       this.submit();

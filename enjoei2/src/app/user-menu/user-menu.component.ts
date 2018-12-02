@@ -34,9 +34,4 @@ export class UserMenuComponent implements OnInit {
     this.logoutAction.emit('logoutAction');
     this.closeMenuAction();
   }
-
-  goToConfiguration() {
-
-  }
-
 }

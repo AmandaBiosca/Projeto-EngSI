@@ -9,6 +9,7 @@ export class SafeUrlPipe implements PipeTransform {
   constructor (private sanitinizer: DomSanitizer) {}
 
   transform(value: string): any {
+    value = 'data:image/jpeg;base64,' + value
     return this.sanitinizer.bypassSecurityTrustResourceUrl(value);
   }
 

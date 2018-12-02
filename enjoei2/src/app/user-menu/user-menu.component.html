@@ -3,11 +3,11 @@
     <img [src]="user.profileImage | safeUrl" class="profile-picture">
     <h2 class="name">{{user.firstName}} {{user.lastName}}</h2>
     <ul class="nav">
-      <li class="nav-item" (click)="goToConfiguration()">
-        Configurações
+      <li class="nav-item">
+        <a routerLink="/perfil" routerLinkActive="active" (click)="closeMenuAction()">Configurações</a>
       </li>
-      <li class="nav-item" (click)="logoutHandler()">
-        Sair
+      <li class="nav-item">
+        <span (click)="logoutHandler()">Sair</span>
       </li>
     </ul>
   </div>

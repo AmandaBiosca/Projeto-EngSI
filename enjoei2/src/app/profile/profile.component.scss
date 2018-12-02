@@ -1,0 +1,159 @@
+.content {
+    $white: white;
+    $primary-light: #AA076B;
+    $gray: #747474;
+    $light-gray: #c3c3c3;
+
+    padding-top: 80px;
+    
+    .message {
+        padding-top: 100px;
+        font-size: 24px;
+        text-align: center;
+    }
+    nav {
+        padding: 30px 100px;
+        
+        ul{
+            display: flex;
+
+            li {
+                margin-right: 10px;
+            
+                .arrow {
+                    display: inline-block;
+                    width: 12px;
+                    height: 12px;
+                    border-top: 2px solid $primary-light;
+                    border-right: 2px solid $primary-light;
+                    transform: rotate(-135deg);
+                    margin-left: 5px;
+                }
+                a {
+                    color: $primary-light;
+                    
+                    &:visited {
+                        color: $primary-light;
+                    }
+                }
+            }
+        }
+    }
+
+    .btn-pwd-holder {
+        display: flex;
+        justify-content: flex-end;
+        align-self: flex-end;
+
+        button {
+            align-self: flex-end;
+            font-size: 16px;
+            color: $primary-light;
+            box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $primary-light;
+
+            &.cancel {
+                margin-right: 20px;
+                color: $gray;
+                box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $light-gray;
+            }
+
+            &.sending {
+                color: $gray;
+                box-shadow: none;
+                cursor: default;
+            }
+        }
+    }
+    
+    .save-holder {
+        display: flex;
+        justify-content: center;
+        align-self: flex-end;
+
+        button {
+            font-size: 20px;
+            color: $primary-light;
+            box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $primary-light;
+
+            &.sending {
+                color: $gray;
+                box-shadow: none;
+                cursor: default;
+            }
+        }
+    }
+
+    .form-holder {
+        display: flex;
+        flex-direction: column;
+        padding: 0 100px 100px 100px;
+
+        h2 {
+            font-size: 24px;
+            margin: 80px 0 20px 0;
+            color: $primary-light;
+        }
+
+        .profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 200px;
+            align-self: center;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .fields {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+
+            &.auth-fields {
+                .btn-holder {
+                    display: flex;
+                    padding: 0 0 1.25em 0;
+                    width: 30%;
+                    
+                    button {
+                        align-self: flex-end;
+                        font-size: 16px;
+                        color: $primary-light;
+                        box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $primary-light;
+                    }
+                }
+            }
+            
+            .input-field {
+                display: flex;
+                flex-direction: column;
+                width: 30%;
+                
+                label {
+                    font-size: 16px;
+                    color: $gray;
+                    margin-bottom: 5px;
+                }
+                
+                input {
+                    height: 30px;
+                    font-size: 16px;
+                    color: $primary-light;
+                    letter-spacing: 1px;
+                    
+                    &#pwd {
+                        letter-spacing: 3px;
+                    }
+                }
+
+                .mat-select {
+                    height: 30px;
+                    font-size: 16px;
+                    letter-spacing: 1px;
+                    box-sizing: border-box;
+                    padding-top: 5px;
+                }
+            }
+        }
+    }
+}
