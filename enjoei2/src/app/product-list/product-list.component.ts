@@ -32,9 +32,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   resetProductList(newIds: number[]) {
     this.productList = [];
-    //this.requestLine = newIds;
-    this.requestLine = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
-
+    console.log(newIds);
+    this.requestLine = newIds;
     this.getPage();
   }
 
@@ -42,7 +41,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     if (this.requestLine.length) {
       this.loading = true;
       let nextRequest = this.requestLine.splice(0, 8);
-      this.productListService.getResults(nextRequest).subscribe(
+      this.productListService.getResults(nextRequest,
         data => {
           //mock
           data = PRODUCTS;
@@ -57,14 +56,13 @@ export class ProductListComponent implements OnInit, OnDestroy {
           }
           this.hardLoad = false;
           this.loading = false;
-        },
-        error => {
-          this.toastr.error('Não foi possível obter os produtos solicitados', 'Algo deu errado!');
-          console.log(error);
-          this.loading = false;
-          this.hardLoad = false;
-        }
-      )
+        })
+        // error => {
+        //   this.toastr.error('Não foi possível obter os produtos solicitados', 'Algo deu errado!');
+        //   console.log(error);
+        //   this.loading = false;
+        //   this.hardLoad = false;
+        // }
     } else {
       this.hardLoad = false;
     }
@@ -77,7 +75,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       this.title = "Especialmente para você"
       this.productListService.getUserProducts(this.id).subscribe(
         data => {
-          this.resetProductList([1, 2]);
+          this.resetProductList(data);
         },
         error => {
           this.toastr.error('Não foi possível obter os produtos para o usuário', 'Algo deu errado!');
@@ -89,7 +87,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       this.title = "Populares"
       this.productListService.getPopularProducts().subscribe(
         data => {
-          this.resetProductList([1, 2]);
+          this.resetProductList(data);
         },
         error => {
           this.toastr.error('Não foi possível obter os produtos populares', 'Algo deu errado!');
@@ -112,7 +110,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
     this.productListService.getFilterProducts(params).subscribe(
       data => {
-        this.resetProductList([1, 2]);
+        this.resetProductList(data);
       },
       error => {
         this.toastr.error('Não foi possível realziar a busca', 'Algo deu errado!');

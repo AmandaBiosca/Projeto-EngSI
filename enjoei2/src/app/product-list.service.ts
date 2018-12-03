@@ -19,17 +19,20 @@ export class ProductListService {
   }
 
   popularURL = 'http://ec2-54-185-32-212.us-west-2.compute.amazonaws.com:8080/requisitar/maispop/24';
-  userUrl = 'http://ec2-54-185-32-212.us-west-2.compute.amazonaws.com:8080/requisitar/cliente/';
+  userUrl = 'http://ec2-54-185-32-212.us-west-2.compute.amazonaws.com:8080/requisitar/bucarrelacionado/$$id/24'
   searchUrl = 'http://ec2-54-185-32-212.us-west-2.compute.amazonaws.com:8080/requisitar/busca/$$search/$$category/$$id/$$min/$$max/$$order'
 
   constructor(private http: HttpClient) { }
 
   getPopularProducts(): Observable<any> {
-    return this.http.get(this.popularURL, {responseType: 'text'});
+    return this.http.get(this.popularURL, this.httpOptions);
   }
 
   getUserProducts(id: number): Observable<any> {
-    return this.http.get(this.userUrl + id, this.httpOptions);
+    let customUrl = this.userUrl;
+
+    customUrl = customUrl.replace('$$id', id.toString());
+    return this.http.get(customUrl, this.httpOptions);
   }
 
   getProducts(): Product[] {
@@ -52,11 +55,12 @@ export class ProductListService {
     customUrl = customUrl.replace('$$max', params.max || 'None');  
     customUrl = customUrl.replace('$$order', params.order || 'None'); 
 
-    return this.http.get(customUrl, {responseType: 'text'});
+    return this.http.get(customUrl, this.httpOptions);
   }
 
-  getResults(idList: number[]): Observable<any> {
+  getResults(idList: number[], callback: Function): any {
     // mudar para outro serviço
-    return this.http.get(this.popularURL, {responseType: 'text'});
+    // return this.http.get(this.popularURL, this.httpOptions);
+    callback();
   }
 }
