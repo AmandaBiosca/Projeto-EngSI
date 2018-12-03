@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
 
   showMenu: boolean = false;
   user: PublicUser;
+  search: string = '';
 
   constructor(private router: Router,
     private formBuilder: FormBuilder, private el: ElementRef,
@@ -35,6 +36,14 @@ export class HeaderComponent implements OnInit {
     this.communication.triggerLogin.subscribe( action => {
       this.checkUser();
     });
+  }
+
+  searchAction() {
+    if(this.router.url.indexOf('/home') < 0) {
+      this.router.navigate(['/home']);
+    } else {
+      this.communication.search(this.search);
+    }
   }
 
   checkUser() {

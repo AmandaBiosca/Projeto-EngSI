@@ -1,7 +1,8 @@
 $primary-light: #AA076B;
+$white: white;
+$gray: #747474;
 
 .list-title {
-    padding: 0 5%;
     margin: 50px 0;
     font-size: 24px;
     color: $primary-light;
@@ -10,23 +11,22 @@ $primary-light: #AA076B;
 .product-list {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 5%;
+    justify-content: space-between;
 
     .product-container {
         width: 23.5%;
-        margin-left: 2%;
         margin-bottom: 50px;
-        cursor: pointer;
-
-        &:first-child {
-            margin-left: 0;
-        }
 
         .product-picture {
 
             img {
                 width: 100%;
+                border-radius: 5px;
                 display: block;
+                cursor: pointer;
+                &:hover {
+                    filter: brightness(.9);
+                }
             }
         }
 
@@ -44,4 +44,29 @@ $primary-light: #AA076B;
             }
         }
     }
+}
+
+.btn-holder {
+
+    display: flex;
+    justify-content: center;
+
+    button {
+        font-size: 20px;
+        color: $primary-light;
+        box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $primary-light;
+
+        &.loading {
+            color: $gray;
+            box-shadow: none;
+            cursor: default;
+        }
+    }
+}
+
+.loadingOverlay {
+    text-align: center;
+    font-size: 20px;
+    padding-top: 300px;
+    color: $gray;
 }

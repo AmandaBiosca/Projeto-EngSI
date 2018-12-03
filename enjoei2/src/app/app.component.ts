@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommunicationService } from './communication.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ export class AppComponent {
   logged: boolean;
   id: number;
 
+  constructor(private communication: CommunicationService) { }
   ngOnInit() {
     this.showLogin = false;
     const oldId = window.localStorage.getItem('enjoojeiUserID');
@@ -27,10 +29,12 @@ export class AppComponent {
     this.showLogin = false;
     this.id = id;
     window.localStorage.setItem('enjoojeiUserID', id);
+    this.communication.login();
   }
 
   logout() {
     window.localStorage.removeItem('enjoojeiUserID');
     this.id = -1;
+    this.communication.logout();
   }
 }
