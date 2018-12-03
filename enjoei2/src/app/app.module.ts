@@ -24,6 +24,7 @@ import { MatNativeDateModule } from '@angular/material';
 import { UserMenuComponent } from './user-menu/user-menu.component';
 import { SafeUrlPipe } from './safe-url.pipe';
 import { ProfileComponent } from './profile/profile.component';
+import { ProductRegisterComponent } from './product-register/product-register.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterComponent,
     UserMenuComponent,
     SafeUrlPipe,
-    ProfileComponent
+    ProfileComponent,
+    ProductRegisterComponent
   ],
   imports: [
     BrowserModule,
