@@ -1,3 +1,92 @@
-<p>
-  product-register works!
-</p>
+<section class="content">
+  <nav>
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li>
+        <div class="arrow"></div>
+      </li>
+      <li><a routerLink="/perfil" routerLinkActive="active">Anunciar produto</a></li>
+    </ul>
+  </nav>
+  <form>
+    <fieldset>
+      <div class="form-holder">
+        <h2>Identificação</h2>
+        <div class="name-fields fields">
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Nome do produto" id="name" name="name">
+            </mat-form-field>
+          </div>
+        </div>
+        <h2>Informações</h2>
+        <div class="info-fields fields">
+          <div class="input-field">
+            <mat-form-field>
+              <mat-select placeholder="Categoria" id="category" name="category">
+                <mat-option value="Camisetas">Camisetas</mat-option>
+                <mat-option value="Vestidos">Vestidos</mat-option>
+                <mat-option value="Calças">Calças</mat-option>
+                <mat-option value="Bermudas">Bermudas</mat-option>
+                <mat-option value="Saias">Saias</mat-option>
+                <mat-option value="Agasalhos">Agasalhos</mat-option>
+                <mat-option value="Acessórios">Acessórios</mat-option>
+                <mat-option value="Bolsas">Bolsas</mat-option>
+                <mat-option value="Outros">Outros</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Marca" id="brand" name="brand">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <mat-select placeholder="Condição" id="condition" name="condition">
+                <mat-option value="Novo">Novo</mat-option>
+                <mat-option value="Usado">Usado</mat-option>
+                <mat-option value="Seminovo">Seminovo</mat-option>
+                <mat-option value="Defeito de fabricação">Defeito de fabricação</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Descrição" id="desc" name="desc">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Tamanho" id="size" name="size">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Tags" id="tags" name="tags">
+              <mat-hint>Separe as palavras por ","</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+        <h2>Pagamento</h2>
+        <div class="payment-fields fields">
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Preço" id="price" name="price">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Frete" id="shipping" name="shipping">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Desconto" id="shipping" name="shipping">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</section>
