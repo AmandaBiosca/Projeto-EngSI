@@ -1,3 +1,4 @@
+import { ProductRegisterComponent } from './product-register/product-register.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductDetailsComponent } from './product-details/product-details.component';
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'produto/detalhes', component: ProductDetailsComponent },
   { path: 'pagamento', component: PagamentoComponent},
-  { path: 'perfil', component: ProfileComponent}
+  { path: 'perfil', component: ProfileComponent},
+  { path: 'publicar', component: ProductRegisterComponent}
 ];
 
 @NgModule({

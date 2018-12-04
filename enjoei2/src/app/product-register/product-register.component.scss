@@ -1,0 +1,109 @@
+.content {
+    $white: white;
+    $primary-light: #AA076B;
+    $gray: #747474;
+    $light-gray: #c3c3c3;
+
+    padding-top: 80px;
+    
+    
+    nav {
+        padding: 30px 100px;
+        
+        ul{
+            display: flex;
+
+            li {
+                margin-right: 10px;
+            
+                .arrow {
+                    display: inline-block;
+                    width: 12px;
+                    height: 12px;
+                    border-top: 2px solid $primary-light;
+                    border-right: 2px solid $primary-light;
+                    transform: rotate(-135deg);
+                    margin-left: 5px;
+                }
+                a {
+                    color: $primary-light;
+                    
+                    &:visited {
+                        color: $primary-light;
+                    }
+                }
+            }
+        }
+    }
+    
+    .save-holder {
+        display: flex;
+        justify-content: center;
+        align-self: flex-end;
+        margin-top: 40px;
+
+        button {
+            font-size: 20px;
+            color: $primary-light;
+            box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $primary-light;
+
+            &.sending {
+                color: $gray;
+                box-shadow: none;
+                cursor: default;
+            }
+        }
+    }
+
+    .form-holder {
+        display: flex;
+        flex-direction: column;
+        padding: 0 100px 100px 100px;
+
+        h2 {
+            font-size: 24px;
+            margin: 80px 0 20px 0;
+            color: $primary-light;
+        }
+
+        .fields {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+            
+            .input-field {
+                display: flex;
+                flex-direction: column;
+                width: 30%;
+                
+                label {
+                    font-size: 16px;
+                    color: $gray;
+                    margin-bottom: 5px;
+                }
+                
+                input {
+                    height: 30px;
+                    font-size: 16px;
+                    color: $primary-light;
+                    letter-spacing: 1px;
+                    
+                    &[type=number]::-webkit-inner-spin-button, 
+                    &[type=number]::-webkit-outer-spin-button { 
+                        -webkit-appearance: none; 
+                        margin: 0; 
+                    }
+                }
+
+                .mat-select {
+                    height: 30px;
+                    font-size: 16px;
+                    letter-spacing: 1px;
+                    box-sizing: border-box;
+                    padding-top: 5px;
+                }
+            }
+        }
+    }
+}
