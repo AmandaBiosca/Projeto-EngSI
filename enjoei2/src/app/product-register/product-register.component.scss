@@ -40,6 +40,7 @@
         display: flex;
         justify-content: center;
         align-self: flex-end;
+        margin-top: 40px;
 
         button {
             font-size: 20px;
@@ -87,6 +88,12 @@
                     font-size: 16px;
                     color: $primary-light;
                     letter-spacing: 1px;
+                    
+                    &[type=number]::-webkit-inner-spin-button, 
+                    &[type=number]::-webkit-outer-spin-button { 
+                        -webkit-appearance: none; 
+                        margin: 0; 
+                    }
                 }
 
                 .mat-select {

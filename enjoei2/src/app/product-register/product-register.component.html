@@ -5,7 +5,7 @@
       <li>
         <div class="arrow"></div>
       </li>
-      <li><a routerLink="/perfil" routerLinkActive="active">Anunciar produto</a></li>
+      <li><a routerLink="/publicar" routerLinkActive="active">Anunciar produto</a></li>
     </ul>
   </nav>
   <form>
@@ -15,7 +15,7 @@
         <div class="name-fields fields">
           <div class="input-field">
             <mat-form-field>
-              <input matInput placeholder="Nome do produto" id="name" name="name">
+              <input matInput [(ngModel)]="form.nome" placeholder="Nome do produto" id="name" name="name">
             </mat-form-field>
           </div>
         </div>
@@ -23,7 +23,7 @@
         <div class="info-fields fields">
           <div class="input-field">
             <mat-form-field>
-              <mat-select placeholder="Categoria" id="category" name="category">
+              <mat-select [(ngModel)]="form.categoria" placeholder="Categoria" id="category" name="category">
                 <mat-option value="Camisetas">Camisetas</mat-option>
                 <mat-option value="Vestidos">Vestidos</mat-option>
                 <mat-option value="Calças">Calças</mat-option>
@@ -38,12 +38,12 @@
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input matInput placeholder="Marca" id="brand" name="brand">
+              <input matInput [(ngModel)]="form.nome" placeholder="Marca" id="brand" name="brand">
             </mat-form-field>
           </div>
           <div class="input-field">
             <mat-form-field>
-              <mat-select placeholder="Condição" id="condition" name="condition">
+              <mat-select [(ngModel)]="form.condicao" placeholder="Condição" id="condition" name="condition">
                 <mat-option value="Novo">Novo</mat-option>
                 <mat-option value="Usado">Usado</mat-option>
                 <mat-option value="Seminovo">Seminovo</mat-option>
@@ -53,12 +53,12 @@
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input matInput placeholder="Descrição" id="desc" name="desc">
+              <input [(ngModel)]="form.descrica" matInput placeholder="Descrição" id="desc" name="desc">
             </mat-form-field>
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input matInput placeholder="Tamanho" id="size" name="size">
+              <input matInput placeholder="Tamanho" [(ngModel)]="id_vendedora" id="size" name="size">
             </mat-form-field>
           </div>
           <div class="input-field">
@@ -72,19 +72,25 @@
         <div class="payment-fields fields">
           <div class="input-field">
             <mat-form-field>
-              <input matInput placeholder="Preço" id="price" name="price">
+              <input matInput type="number" step="0.01" placeholder="Preço" id="price" name="price">
             </mat-form-field>
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input matInput placeholder="Frete" id="shipping" name="shipping">
+              <input matInput type="number" step="0.01" placeholder="Frete" id="shipping" name="shipping">
             </mat-form-field>
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input matInput placeholder="Desconto" id="shipping" name="shipping">
+              <input matInput type="number" step="0.01" placeholder="Desconto" id="shipping" name="shipping">
             </mat-form-field>
           </div>
+        </div>
+        <div *ngIf="!sending" class="save-holder">
+          <button type="button" class="save" (click)="saveHandler()">Salvar</button>
+        </div>
+        <div *ngIf="sending" class="save-holder center">
+          <button type="button" class="sending" disabled>Enviando, por favor aguarde</button>
         </div>
       </div>
     </fieldset>
