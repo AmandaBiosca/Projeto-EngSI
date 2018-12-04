@@ -18,7 +18,11 @@
     <fieldset>
       <div class="form-holder">
         <img class="profile-picture" [src]="user.profileImage | safeUrl" />
-        <h2>Identificação</h2>
+        <div class="image-btn">
+          <button *ngIf="user.profileImage" type="button" md-button (click)="imgFileInput.click()">Trocar foto</button>
+          <input hidden type="file" #imgFileInput (change)="imageUpload($event)" />
+        </div>
+        <h2 class="small-margin">Identificação</h2>
         <div class="name-fields fields">
           <div class="input-field">
             <mat-form-field>

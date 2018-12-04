@@ -13,17 +13,19 @@
       <div class="form-holder">
         <h2>Identificação</h2>
         <div class="name-fields fields">
-          <div class="iamgeHolder">
-            <img *ngIf="form.foto" class="prodcut-picture" [src]="form.foto | safeUrl" />
-            <button *ngIf="!form.foto" type="button" md-button (click)="imgFileInput.click()">Adicionar foto</button>
-            <button *ngIf="form.foto" type="button" md-button (click)="imgFileInput.click()">Trocar foto</button>
-            <input hidden type="file" #imgFileInput (change)="imageUpload($event)" />
-          </div>
+          <img *ngIf="form.foto" class="product-picture" [src]="form.foto | safeUrl" />
+          <div *ngIf="!form.foto" class="empty-picture"></div>
           <div class="input-field">
             <mat-form-field>
               <input matInput [(ngModel)]="form.nome" placeholder="Nome do produto" id="name" name="name">
             </mat-form-field>
           </div>
+          <div class="image-btn">
+            <button *ngIf="!form.foto" type="button" md-button (click)="imgFileInput.click()">Adicionar foto</button>
+            <button *ngIf="form.foto" type="button" md-button (click)="imgFileInput.click()">Trocar foto</button>
+            <input hidden type="file" #imgFileInput (change)="imageUpload($event)" />
+          </div>
+          <div class="input-field"></div>
         </div>
         <h2>Informações</h2>
         <div class="info-fields fields">
