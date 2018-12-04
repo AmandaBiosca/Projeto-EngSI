@@ -13,6 +13,12 @@
       <div class="form-holder">
         <h2>Identificação</h2>
         <div class="name-fields fields">
+          <div class="iamgeHolder">
+            <img *ngIf="form.foto" class="prodcut-picture" [src]="form.foto | safeUrl" />
+            <button *ngIf="!form.foto" type="button" md-button (click)="imgFileInput.click()">Adicionar foto</button>
+            <button *ngIf="form.foto" type="button" md-button (click)="imgFileInput.click()">Trocar foto</button>
+            <input hidden type="file" #imgFileInput (change)="imageUpload($event)" />
+          </div>
           <div class="input-field">
             <mat-form-field>
               <input matInput [(ngModel)]="form.nome" placeholder="Nome do produto" id="name" name="name">
@@ -82,7 +88,8 @@
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input [(ngModel)]="form.desconto" matInput type="number" step="0.01" placeholder="Desconto" id="shipping" name="shipping">
+              <input [(ngModel)]="form.desconto" matInput type="number" step="0.01" placeholder="Desconto" id="shipping"
+                name="shipping">
             </mat-form-field>
           </div>
         </div>
