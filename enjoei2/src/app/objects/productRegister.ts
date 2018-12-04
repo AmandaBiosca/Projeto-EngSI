@@ -6,7 +6,6 @@ export class ProductRegister {
     descricao: string;
     foto: string;
     frete: number;
-    id_comprador: number;
     id_vendedor: number;
     marca: string;
     nome: string;

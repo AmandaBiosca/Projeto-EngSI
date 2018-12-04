@@ -8,7 +8,7 @@
       <li><a routerLink="/publicar" routerLinkActive="active">Anunciar produto</a></li>
     </ul>
   </nav>
-  <form>
+  <form *ngIf="showForm">
     <fieldset>
       <div class="form-holder">
         <h2>Identificação</h2>
@@ -38,7 +38,7 @@
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input matInput [(ngModel)]="form.nome" placeholder="Marca" id="brand" name="brand">
+              <input matInput [(ngModel)]="form.marca" placeholder="Marca" id="brand" name="brand">
             </mat-form-field>
           </div>
           <div class="input-field">
@@ -53,17 +53,17 @@
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input [(ngModel)]="form.descrica" matInput placeholder="Descrição" id="desc" name="desc">
+              <input [(ngModel)]="form.descricao" matInput placeholder="Descrição" id="desc" name="desc">
             </mat-form-field>
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input matInput placeholder="Tamanho" [(ngModel)]="id_vendedora" id="size" name="size">
+              <input [(ngModel)]="form.tamanho" matInput placeholder="Tamanho" id="size" name="size">
             </mat-form-field>
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input matInput placeholder="Tags" id="tags" name="tags">
+              <input [(ngModel)]="form.tags" matInput placeholder="Tags" id="tags" name="tags">
               <mat-hint>Separe as palavras por ","</mat-hint>
             </mat-form-field>
           </div>
@@ -72,17 +72,17 @@
         <div class="payment-fields fields">
           <div class="input-field">
             <mat-form-field>
-              <input matInput type="number" step="0.01" placeholder="Preço" id="price" name="price">
+              <input [(ngModel)]="form.preco" matInput type="number" step="0.01" placeholder="Preço" id="price" name="price">
             </mat-form-field>
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input matInput type="number" step="0.01" placeholder="Frete" id="shipping" name="shipping">
+              <input [(ngModel)]="form.frete" matInput type="number" step="0.01" placeholder="Frete" id="shipping" name="shipping">
             </mat-form-field>
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input matInput type="number" step="0.01" placeholder="Desconto" id="shipping" name="shipping">
+              <input [(ngModel)]="form.desconto" matInput type="number" step="0.01" placeholder="Desconto" id="shipping" name="shipping">
             </mat-form-field>
           </div>
         </div>
@@ -95,4 +95,7 @@
       </div>
     </fieldset>
   </form>
+  <div *ngIf="showError" class="message">
+    <p>Não foi possível acessar os dados do usuário que está publicando o produto</p>
+  </div>
 </section>
