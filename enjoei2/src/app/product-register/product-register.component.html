@@ -14,41 +14,45 @@
         <h2>Identificação</h2>
         <div class="name-fields fields">
           <img *ngIf="form.foto" class="product-picture" [src]="form.foto | safeUrl" />
-          <div *ngIf="!form.foto" class="empty-picture"></div>
-          <div class="input-field">
-            <mat-form-field>
-              <input matInput [(ngModel)]="form.nome" placeholder="Nome do produto" id="name" name="name">
-            </mat-form-field>
+          <div *ngIf="!form.foto" class="empty-picture">
+            <button *ngIf="!form.foto" type="button" md-button (click)="imgFileInput.click()">+</button>
           </div>
-          <div class="image-btn">
-            <button *ngIf="!form.foto" type="button" md-button (click)="imgFileInput.click()">Adicionar foto</button>
-            <button *ngIf="form.foto" type="button" md-button (click)="imgFileInput.click()">Trocar foto</button>
-            <input hidden type="file" #imgFileInput (change)="imageUpload($event)" />
+          <div class="side">
+            <div class="input-field">
+              <mat-form-field>
+                <input matInput [(ngModel)]="form.nome" placeholder="Nome do produto" id="name" name="name">
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field>
+                <input matInput [(ngModel)]="form.marca" placeholder="Marca" id="brand" name="brand">
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field>
+                <mat-select [(ngModel)]="form.categoria" placeholder="Categoria" id="category" name="category">
+                  <mat-option value="Camisetas">Camisetas</mat-option>
+                  <mat-option value="Vestidos">Vestidos</mat-option>
+                  <mat-option value="Calças">Calças</mat-option>
+                  <mat-option value="Bermudas">Bermudas</mat-option>
+                  <mat-option value="Saias">Saias</mat-option>
+                  <mat-option value="Agasalhos">Agasalhos</mat-option>
+                  <mat-option value="Acessórios">Acessórios</mat-option>
+                  <mat-option value="Bolsas">Bolsas</mat-option>
+                  <mat-option value="Outros">Outros</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
           </div>
+
           <div class="input-field"></div>
+        </div>
+        <div class="image-btn">
+          <button *ngIf="form.foto" type="button" md-button (click)="imgFileInput.click()">Trocar foto</button>
+          <input hidden type="file" #imgFileInput (change)="imageUpload($event)" />
         </div>
         <h2>Informações</h2>
         <div class="info-fields fields">
-          <div class="input-field">
-            <mat-form-field>
-              <mat-select [(ngModel)]="form.categoria" placeholder="Categoria" id="category" name="category">
-                <mat-option value="Camisetas">Camisetas</mat-option>
-                <mat-option value="Vestidos">Vestidos</mat-option>
-                <mat-option value="Calças">Calças</mat-option>
-                <mat-option value="Bermudas">Bermudas</mat-option>
-                <mat-option value="Saias">Saias</mat-option>
-                <mat-option value="Agasalhos">Agasalhos</mat-option>
-                <mat-option value="Acessórios">Acessórios</mat-option>
-                <mat-option value="Bolsas">Bolsas</mat-option>
-                <mat-option value="Outros">Outros</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div class="input-field">
-            <mat-form-field>
-              <input matInput [(ngModel)]="form.marca" placeholder="Marca" id="brand" name="brand">
-            </mat-form-field>
-          </div>
           <div class="input-field">
             <mat-form-field>
               <mat-select [(ngModel)]="form.condicao" placeholder="Condição" id="condition" name="condition">
@@ -61,11 +65,6 @@
           </div>
           <div class="input-field">
             <mat-form-field>
-              <input [(ngModel)]="form.descricao" matInput placeholder="Descrição" id="desc" name="desc">
-            </mat-form-field>
-          </div>
-          <div class="input-field">
-            <mat-form-field>
               <input [(ngModel)]="form.tamanho" matInput placeholder="Tamanho" id="size" name="size">
             </mat-form-field>
           </div>
@@ -73,6 +72,11 @@
             <mat-form-field>
               <input [(ngModel)]="form.tags" matInput placeholder="Tags" id="tags" name="tags">
               <mat-hint>Separe as palavras por ","</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="input-field full">
+            <mat-form-field>
+              <input [(ngModel)]="form.descricao" matInput placeholder="Descrição" id="desc" name="desc">
             </mat-form-field>
           </div>
         </div>

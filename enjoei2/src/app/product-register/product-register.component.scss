@@ -56,7 +56,7 @@
     }
 
     .product-picture {
-        width: 300px;
+        width: 30%;
         height: 300px;
         border-radius: 10px;
         align-self: center;
@@ -64,10 +64,17 @@
     }
 
     .empty-picture {
-        width: 300px;
+        width: 30%;
         height: 300px;
         border-radius: 10px;
         border: 1px solid $primary-light;
+        display: flex;
+
+        button {
+            width: 100%;
+            font-size: 40px;
+            color: $primary-light;
+        }
     }
 
     .image-btn {
@@ -75,6 +82,7 @@
         padding: 0 0 1.25em 0;
         width: 30%;
         justify-content: center;
+        margin-top: 10px;
         button {
             align-self: flex-end;
             font-size: 16px;
@@ -100,11 +108,24 @@
             flex-wrap: wrap;
             width: 100%;
             
+            .side {
+                width: 30%;
+        
+                .input-field {
+                    width: 100%;
+                }
+            }
+
             .input-field {
                 display: flex;
                 flex-direction: column;
                 width: 30%;
-                
+
+                &.full {
+
+                    width: 100%;
+                }
+
                 label {
                     font-size: 16px;
                     color: $gray;
