@@ -82,6 +82,19 @@
             }
         }
     }
+    .image-btn {
+        display: flex;
+        padding: 0 0 1.25em 0;
+        width: 100%;
+        justify-content: center;
+        margin-top: 20px;
+        button {
+            align-self: flex-end;
+            font-size: 16px;
+            color: $primary-light;
+            box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $primary-light;
+        }
+    }
 
     .form-holder {
         display: flex;
@@ -92,6 +105,10 @@
             font-size: 24px;
             margin: 80px 0 20px 0;
             color: $primary-light;
+            
+            &.small-margin {
+                margin-top: 40px;
+            }
         }
 
         .profile-picture {

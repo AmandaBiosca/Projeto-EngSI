@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductRegister } from '../objects/productRegister';
 import { ToastrService } from 'ngx-toastr';
 import { ProductRegisterService } from '../product-register.service';
+import { UploadService } from '../upload.service';
 
 @Component({
   selector: 'app-product-register',
@@ -16,7 +17,7 @@ export class ProductRegisterComponent implements OnInit {
     condicao: '',
     desconto: 0,
     descricao: '',
-    foto: 'teste',
+    foto: null,
     frete: 0,
     id_vendedor: 0,
     marca: '',
@@ -30,7 +31,25 @@ export class ProductRegisterComponent implements OnInit {
   showError: boolean = false;
   showForm: boolean = false;
 
-  constructor(private toastr: ToastrService, private registerService: ProductRegisterService) { }
+  constructor(private toastr: ToastrService,
+    private registerService: ProductRegisterService) { }
+
+    imageUpload(e) {
+    let file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+    let pattern = /image-*/;
+    let reader = new FileReader();
+    if (!file.type.match(pattern)) {
+      this.toastr.error('Formato de arquivo inválido', 'Algo deu errado!');
+      return null;
+    }
+    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+
+  _handleReaderLoaded(e) {
+    let reader = e.target;
+    this.form.foto = reader.result.split('base64,')[1];
+  }
 
   saveHandler() {
     let valid = true;
@@ -58,7 +77,7 @@ export class ProductRegisterComponent implements OnInit {
       condicao: '',
       desconto: 0,
       descricao: '',
-      foto: '',
+      foto: null,
       frete: 0,
       id_vendedor: oldId,
       marca: '',

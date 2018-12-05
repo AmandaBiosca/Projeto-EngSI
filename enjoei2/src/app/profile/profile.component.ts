@@ -144,6 +144,23 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  imageUpload(e) {
+    let file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+    let pattern = /image-*/;
+    let reader = new FileReader();
+    if (!file.type.match(pattern)) {
+      this.toastr.error('Formato de arquivo inválido', 'Algo deu errado!');
+      return null;
+    }
+    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+
+  _handleReaderLoaded(e) {
+    let reader = e.target;
+    this.user.profileImage = reader.result.split('base64,')[1];
+  }
+
   saveHandler() {
     this.saveAction();
   }
