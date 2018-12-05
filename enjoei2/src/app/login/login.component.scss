@@ -47,7 +47,7 @@
                 .input-field {
                     display: flex;
                     flex-direction: column;
-                    
+                    color: $primary-light !important;
                     label {
                         font-size: 16px;
                         color: $gray;
