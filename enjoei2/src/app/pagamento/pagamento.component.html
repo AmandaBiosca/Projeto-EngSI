@@ -1,0 +1,101 @@
+
+  <div class="row">
+      <!-- <div class="col"> -->
+
+          <h2 class="mat-h2">Pagamento</h2>
+
+          <form [formGroup]="frmPagamento" (ngSubmit)="salvar()" class="form">
+
+            <div class="row">
+              <h3 class="mat-h3">Endereço de Entrega</h3>
+
+              <div class="col">
+                  <mat-form-field class="full-width" color="accent">
+                    <input matInput placeholder="CEP" id="cep" name="cep" formControlName="cep">
+                  </mat-form-field>
+                </div>
+
+              <div class="col">
+                  <mat-form-field class="full-width" color="accent">
+                    <input matInput placeholder="Endereço" id="endereco" name="endereco" formControlName="endereco" autocomplete="off">
+                  </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <mat-form-field class="full-width" color="accent">
+                      <input matInput placeholder="Bairro" id="bairro" name="bairro" formControlName="bairro" autocomplete="off">
+                    </mat-form-field>
+                  </div>
+
+                <div class="col">
+                    <mat-form-field class="full-width" color="accent">
+                      <input matInput placeholder="Número" id="numero" name="numero" formControlName="numero" autocomplete="off">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col">
+                      <mat-form-field class="full-width" color="accent">
+                        <input matInput placeholder="Complemento" id="complemento" name="complemento" formControlName="complemento" autocomplete="off">
+                      </mat-form-field>
+                    </div>
+
+                <div class="row">
+
+                    <div class="col">
+                        <mat-form-field class="full-width" color="accent">
+                          <mat-select placeholder="Estado" id="estado" name="estado" formControlName="estado">
+                            <mat-option *ngFor="let estado of listaEstados" [value]="estado">{{estado}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+
+                    <div class="col">
+                        <mat-form-field class="full-width" color="accent">
+                          <input matInput placeholder="Cidade" id="cidade" name="cidade" formControlName="cidade">
+                        </mat-form-field>
+                      </div>
+
+                    <!-- <button matTooltip="As entregas no Enjoojei só são feitas para o Brasil no momento"
+                      [matTooltipDisabled]="!enable"
+                      aria-label="As entregas no Enjoojei só são feitas para o Brasil no momento">
+                      <mat-icon >help_outline</mat-icon>
+                    </button> -->
+
+                    <button mat-raised-button
+                      matTooltip="As entregas no Enjoojei só são feitas para o Brasil no momento"
+                      aria-label="Button that displays a tooltip when focused or hovered over">
+                      <mat-icon >help_outline</mat-icon>
+                    </button>
+
+
+                </div>
+
+
+              <div class="col-12">
+                  <mat-checkbox formControlName="checkbox" name="checkbox" color="primary">Usar mesmo endereço cadastrado no perfil</mat-checkbox>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col">
+                <mat-form-field class="full-width" color="accent">
+                  <input matInput placeholder="CPF" id="cpf" name="cpf" formControlName="cpf" maxlength="15" autocomplete="off">
+                </mat-form-field>
+              </div>
+              <div class="col">
+                <mat-form-field class="full-width" color="accent">
+                  <input matInput placeholder="Email" id="email" name="email" formControlName="email" autocomplete="off">
+                </mat-form-field>
+              </div>
+            </div>
+
+              <div class="col-12">
+                <div class="button-container full-width">
+                  <button mat-flat-button type="submit" [disabled]="frmPagamento.invalid ">Salvar</button>
+                </div>
+              </div>
+
+          </form>
+
+      <!-- </div> -->
+    </div>

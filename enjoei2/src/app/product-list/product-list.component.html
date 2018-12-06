@@ -1,0 +1,22 @@
+<div *ngIf="!hardLoad">
+  <h2 *ngIf="!search" class="list-title">{{title}}</h2>
+  <h2 *ngIf="search" class="list-title">Exibindo resultados para "{{search}}"</h2>
+  <div class="product-list">
+    <div *ngFor="let product of productList" class="product-container">
+      <div class="product-picture">
+        <img [src]="product.cover">
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">{{product.name}}</h3>
+        <strong class="product-price">R$ {{product.price}}</strong>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="hasMore" class="btn-holder">
+    <button *ngIf="!loading" type="button" (click)="getPage()">carregar mais produtos</button>
+    <button *ngIf="loading" type="button" class="loading" disabled>carregando</button>
+  </div>
+</div>
+<div *ngIf="hardLoad" class="loadingOverlay">
+  <h2>Carregando produtos</h2>
+</div>

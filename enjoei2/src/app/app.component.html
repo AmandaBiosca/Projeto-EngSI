@@ -1,0 +1,8 @@
+<div class="content">
+  <app-header (openLogin)="openLogin()" [id]="id" (logout)="logout()"></app-header>
+  <!-- <app-product-list></app-product-list> -->
+  <router-outlet></router-outlet>
+</div>
+<app-login *ngIf="showLogin" (closeLogin)="closeLogin()" (doLogin)="doLogin($event)"></app-login>
+
+<!-- <router-outlet></router-outlet> -->

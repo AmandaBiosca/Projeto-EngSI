@@ -1,0 +1,183 @@
+<section class="content">
+  <nav>
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li>
+        <div class="arrow"></div>
+      </li>
+      <li><a routerLink="/perfil" routerLinkActive="active">Configurações</a></li>
+    </ul>
+  </nav>
+  <div *ngIf="loading" class="message">
+    <p>Carregando informações do usuário</p>
+  </div>
+  <div *ngIf="!loading && error" class="message">
+    <p>Não foi possível acessar os dados relacionados ao usuário solicitado</p>
+  </div>
+  <form *ngIf="!loading && !error && user">
+    <fieldset>
+      <div class="form-holder">
+        <img class="profile-picture" [src]="user.profileImage | safeUrl" />
+        <div class="image-btn">
+          <button *ngIf="user.profileImage" type="button" md-button (click)="imgFileInput.click()">Trocar foto</button>
+          <input hidden type="file" #imgFileInput (change)="imageUpload($event)" />
+        </div>
+        <h2 class="small-margin">Identificação</h2>
+        <div class="name-fields fields">
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Primeiro nome" [(ngModel)]="user.firstName" id="firstName" name="firstName">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Último nome" [(ngModel)]="user.lastName" id="lastName" name="lastName">
+            </mat-form-field>
+          </div>
+          <div class="input-field"></div>
+        </div>
+        <div class="auth-fields fields">
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="E-mail" [(ngModel)]="user.email" id="email" name="email">
+            </mat-form-field>
+          </div>
+          <div class="btn-holder">
+            <button *ngIf="!showPassword" type="button" class="change" (click)=showPasswordFields()>mudar senha</button>
+          </div>
+          <div class="input-field"></div>
+          <div *ngIf="showPassword" class="fields">
+            <div class="input-field">
+              <mat-form-field>
+                <input matInput placeholder="Senha antiga" [type]="hide ? 'password' : 'text'" id="oldPwd" [(ngModel)]="oldPassword"
+                  name="oldPassword">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field>
+                <input matInput placeholder="Nova senha" [type]="hide2 ? 'password' : 'text'" id="pwd" [(ngModel)]="password"
+                  name="password">
+                <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </mat-form-field>
+            </div>
+            <div class="input-field">
+              <mat-form-field>
+                <input matInput placeholder="Confirmar senha" [type]="hide3 ? 'password' : 'text'" id="pwd2"
+                  [(ngModel)]="password2" name="password2">
+                <mat-icon matSuffix (click)="hide3 = !hide3">{{hide3 ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </mat-form-field>
+            </div>
+            <div class="input-field"></div>
+            <div class="input-field"></div>
+            <div *ngIf="!sendingPassword" class="btn-pwd-holder">
+              <button type="button" class="cancel" (click)=hidePasswordFields()>cancelar</button>
+              <button type="button" class="" (click)=savePasswordFields()>confirmar</button>
+            </div>
+            <div *ngIf="sendingPassword" class="btn-pwd-holder">
+              <button type="button" class="sending" disabled>Enviando</button>
+            </div>
+          </div>
+        </div>
+        <h2>Informações pessoais</h2>
+        <div class="information-fields fields">
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput [(ngModel)]="user.cpf" placeholder="CPF" id="cpf" name="cpf">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput [matDatepicker]="dp1" [(ngModel)]="user.birthDate" placeholder="Data de nascimento"
+                disabled id="birthDate" name="birthDate">
+              <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+              <mat-datepicker #dp1 disabled="false"></mat-datepicker>
+              <mat-hint>Clique no calendário para selecionar a data</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <mat-select placeholder="Sexo" [(ngModel)]="user.sex" id="sex" name="sex">
+                <mat-option value="MALE">Masculino</mat-option>
+                <mat-option value="FEMALE">Feminino</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="DDD" [(ngModel)]="user.ddd" id="ddd" name="ddd">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Telefone" [(ngModel)]="user.phone" id="phone" name="phone">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <mat-select placeholder="Tamanho" [(ngModel)]="user.size" id="size" name="size">
+                <mat-option value="PP">PP</mat-option>
+                <mat-option value="P">P</mat-option>
+                <mat-option value="M">M</mat-option>
+                <mat-option value="G">G</mat-option>
+                <mat-option value="GG">GG</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput type="number" placeholder="Tamanho de sapato" min="0" [(ngModel)]="user.shoeSize" id="shoeSize"
+                name="shoeSize">
+            </mat-form-field>
+          </div>
+          <div class="input-field"></div>
+          <div class="input-field"></div>
+        </div>
+        <h2>Endereço</h2>
+        <div class="address-fields fields">
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="CEP" [(ngModel)]="cep" id="cep" name="cep">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Estado" [(ngModel)]="state" id="state" name="state">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Cidade" [(ngModel)]="user.city" id="city" name="city">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Bairro" [(ngModel)]="user.neighborhood" id="neighborhood" name="neighborhood">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Logradouro" [(ngModel)]="streetName" id="streetName" name="streetName">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Número" [(ngModel)]="addressNumber" id="addressNumber" name="addressNumber">
+            </mat-form-field>
+          </div>
+          <div class="input-field">
+            <mat-form-field>
+              <input matInput placeholder="Complemento" [(ngModel)]="user.complement" id="complement" name="complement">
+            </mat-form-field>
+          </div>
+        </div>
+        <div *ngIf="!sending" class="save-holder">
+          <button type="button" class="save" (click)="saveHandler()">Salvar</button>
+        </div>
+        <div *ngIf="sending" class="save-holder center">
+          <button type="button" class="sending" disabled>Enviando, por favor aguarde</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</section>

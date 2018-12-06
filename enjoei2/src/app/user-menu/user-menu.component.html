@@ -1,0 +1,20 @@
+<div class="menu-overlay" (click)="closeMenuHandler($event)">
+  <div *ngIf="user" class="menu-holder">
+    <img [src]="user.profileImage | safeUrl" class="profile-picture">
+    <h2 class="name">{{user.firstName}} {{user.lastName}}</h2>
+    <ul class="nav">
+      <li class="nav-item">
+        <a routerLink="/perfil" routerLinkActive="active" (click)="closeMenuAction()">Configurações</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/publicar" routerLinkActive="active" (click)="closeMenuAction()">Anunciar produto</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/home" routerLinkActive="active" (click)="logoutHandler()">Sair</a>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!user" class="menu-holder">
+    <span class="center">Carregando usuário</span>
+  </div>
+</div>

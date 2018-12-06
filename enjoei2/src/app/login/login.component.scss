@@ -1,0 +1,96 @@
+.login-overlay {
+    $white: white;
+    $primary-light: #AA076B;
+    $gray: #747474;
+    $light-gray: #c3c3c3;
+
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 901;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+
+    .login-holder {
+        height: 65%;
+        width: 400px;
+        align-self: center;
+        background: $white;
+        border-radius: 5px;
+        z-index: 902;
+        transition: all ease-in .2s;
+
+        &.register {
+            width: 100%;
+            border-radius: 0;
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            padding: 40px;
+
+            .title {
+                text-align: center;
+                font-size: 24px;
+                color: $primary-light;
+            }
+
+            fieldset {
+
+                flex-grow: 1;
+                padding-top: 100px;
+
+                .input-field {
+                    display: flex;
+                    flex-direction: column;
+                    label {
+                        font-size: 16px;
+                        color: $gray;
+                        margin-bottom: 5px;
+                    }
+                
+                    input {
+                        height: 30px;
+                        font-size: 16px;
+                        color: $primary-light;
+                        letter-spacing: 1px;
+
+                        &#pwd {
+                            letter-spacing: 3px;
+                        }
+                    }
+                }
+            }
+
+            .btn-holder {
+                display: flex;
+                justify-content: flex-end;
+
+                &.center {
+                    justify-content: center;
+                }
+                
+                .login-btn {
+                    font-size: 20px;
+                    color: $primary-light;
+                    box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $primary-light;
+
+                    &.register {
+                        color: $gray;
+                        box-shadow: inset 0px 15px 0px 0px $white, inset 0px -1px 0px $light-gray;
+                        margin-right: 30px;
+                    }
+
+                    &.sending {
+                        color: $gray;
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+}
