@@ -63,8 +63,9 @@ export class RegisterComponent implements OnInit {
           this.loading = false;
         },
         error => {
-          error = error.error || {};
-          this.toastr.error(error.error + ' - (DEVs) Para ver a mensagem completa, abra o console do navegador', 'Algo deu errado!');
+          error = error.error;
+          error = error.errors[0] || {};
+          this.toastr.error(error.message || "Erro" + ' - (DEVs) Para ver a mensagem completa, abra o console do navegador', 'Algo deu errado!');
           console.log(error.message);
           this.loading = false;
         });
