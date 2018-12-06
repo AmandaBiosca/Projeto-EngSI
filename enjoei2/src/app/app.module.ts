@@ -12,10 +12,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HomeComponent } from './Home/home.component';
-import { PagamentoComponent } from './pagamento/pagamento.component';
-import { LogadoComponent } from './logado/logado.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterComponent } from './register/register.component';
@@ -34,10 +31,7 @@ import { ProductRegisterComponent } from './product-register/product-register.co
     HeaderNavComponent,
     LoginComponent,
     ProductListComponent,
-    ProductDetailsComponent,
     HomeComponent,
-    PagamentoComponent,
-    LogadoComponent,
     RegisterComponent,
     UserMenuComponent,
     SafeUrlPipe,

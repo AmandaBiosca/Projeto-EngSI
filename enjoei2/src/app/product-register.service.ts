@@ -15,7 +15,7 @@ export class ProductRegisterService {
     })
   };
 
-  registerUrl: string = 'https://nuga1kfpx4.execute-api.sa-east-1.amazonaws.com/ver4/cadastro/post_cadastro';
+  registerUrl: string = 'https://4yaozzf2f9.execute-api.sa-east-1.amazonaws.com/ver1';
 
   constructor(private http: HttpClient) { }
 
