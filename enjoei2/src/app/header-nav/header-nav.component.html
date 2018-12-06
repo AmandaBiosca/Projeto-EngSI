@@ -1,8 +1,0 @@
-<ul class="nav">
-  <li *ngIf="!isLogged" class="nav-item login" (click)="loginClick()">
-    Entrar
-  </li>
-  <li *ngIf="isLogged && user" class="nav-item" (click)="menuClick()">
-    <span>Minha conta</span>
-    <img [src]="user.profileImage | safeUrl" class="profile-picture" (click)="menuClick()">
-</ul>
