@@ -15,7 +15,7 @@ export class ProductRegisterService {
     })
   };
 
-  registerUrl: string = 'https://app.swaggerhub.com/apis-docs/Ferch42/PublicacaoDeProduto/1.0.0/cadastro/post_cadastro';
+  registerUrl: string = 'https://nuga1kfpx4.execute-api.sa-east-1.amazonaws.com/ver4/cadastro/post_cadastro';
 
   constructor(private http: HttpClient) { }
 
